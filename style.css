@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+
 
 *{
   margin: 0;
@@ -7,14 +7,15 @@
   outline: none;
   text-decoration: none;
   list-style: none;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 body{
   background-image: url(loginimg.jpg);
-  margin: 0;
+  margin:0;
   width: 100%;
   background-size: auto;
+  font-family: "Montserrat", sans-serif;
 }
 
 .wrapper{
@@ -134,17 +135,17 @@ header {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: 30px 10%;
+  float: center;
+  padding: 3px 5%;
   background-color:  #313840;
 }
 
 .logo {
   margin-right: auto;
-  height: 100px;
 }
 img {
-  height: 150px;
-  width: 150px;
+  height: 170px;
+  width: 170px;
   float: left;
   align:left;
 }
@@ -152,6 +153,7 @@ img {
 .nav__links {
   list-style: none;
   display: flex;
+  font-family: "Montserrat", sans-serif;
 }
 
 .nav__links a,

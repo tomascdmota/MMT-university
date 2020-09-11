@@ -1,3 +1,5 @@
+/*header*/
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -8,18 +10,19 @@ header {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: 30px 10%;
-  background-color: #24252a;
+  float: center;
+  padding: 3px 5%;
+  background-color:  #313840;
 }
 
 .logo {
   margin-right: auto;
-  height: 100px;
 }
 img {
-  height: 150px;
-  width: 150px;
+  height: 170px;
+  width: 170px;
   float: left;
+  align:left;
 }
 
 .nav__links {
