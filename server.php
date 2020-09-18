@@ -11,7 +11,7 @@ $email = "";
 $errors = array();
 
 //connect to // DEBUG:
-$db = mysqli_connect('50.87.145.180', 'univemmt_root', 'root1234', 'univemmt_database') or die("could not connect to db");
+$db = mysqli_connect('localhost', 'root', '', 'users') or die("could not connect to db");
 
 
 

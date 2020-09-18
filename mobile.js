@@ -1,12 +1,25 @@
-const doc = document;
-const menuOpen = doc.querySelector(".menu");
-const menuClose = doc.querySelector(".close");
-const overlay = doc.querySelector(".overlay");
+const navSlide = () => {
+  const burger = document.querySelector('.burger');
+  const nav = document.querySelector('.nav-links');
+  const navLinks = document.querySelectorAll('nav-links li');
 
-menuOpen.addEventListener("click", () => {
-  overlay.classList.add("overlay--active");
-});
+  burger.addEventListener('click', () =>{
+    //Toggle Nav
+    nav.classList.toggle('nav-active');
+    //Animate Links
+    navLinks.forEach((link,index)=>{
+      if(link.style.animation){
+        link.style.animation = '';
+      } else {
+        link.style.animation =  `navLinkfade 0.5s ease forwards %{index / 7 + 1}s`;
+      }
+  });
 
-menuClose.addEventListener("click", () => {
-  overlay.classList.remove("overlay--active");
-});
+  //Burguer animation
+
+  burguer.classList.toggle('toggle');
+
+  });
+
+}
+  navSlide();
