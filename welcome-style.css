@@ -171,6 +171,12 @@ nav{
   .burger {
     display: block;
   }
+
+  .logo {
+    height: 50px;
+    width: 80%;
+    margin-left: 10px;
+  }
 }
 
 .nav-active {
