@@ -1,4 +1,4 @@
-<?php if(count($errors)>0) : ?>
+<?php if( isset($errors) && count($errors)>0) : ?>
 
   <div>
     <?php foreach($errors as $error):?>

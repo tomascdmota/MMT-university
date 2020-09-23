@@ -1,5 +1,5 @@
 <?php
-
+  session_start();
 ?>
 
 
@@ -26,7 +26,7 @@
               <li><a href="#">Contacte-nos<a></li>
               </ul>
 
-              <a class="cta" href="Login.php">Acessar</a>
+              <a class="cta" href="login.php">Acessar</a>
 
           <div class="burger">
             <div class="line1"></div>

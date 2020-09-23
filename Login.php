@@ -4,13 +4,13 @@ session_start();
 $_SESSION['message'] = '';
 
 
-$mysqli - new mysqli('localhost', 'root', 'root', 'users');
+include("db_connection.php");
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	// code...
 	if($_POST['password'] == $_POST['password']){
-		$username = $mysqli-> real_escape_string($_POST['username']);
-		$email = $mysqli->real_escape_string($_POST['Email']);
+		$username = $conn-> real_escape_string($_POST['username']);
+		$email = $conn->real_escape_string($_POST['Email']);
 		$Password = md5($_POST['password']); //md5 hash password security
 
 	}
@@ -98,23 +98,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           <li class="login_li"> Acessar </li>
           <li class="register_li"> Registrar</li>
         </ul>
-      </div>   
+      </div>
 
 
 
-			<form action="login.inc.php" method="post">
+			<form action="signup.inc.php" method="post">
 				<div class="alert alert-error"> <?= $_SESSION['message']?></div>
-				<?php include(errors.php)?>
       		<div class="login">
         	<div class="input_field">
-          	<input type="text" name="email" placeholder="Email" class="input" required>
+          	<input type="text" name="mailuid" placeholder="Email/Username" class="input" required>
         </div>
 
         <div class="input_field">
           <input type="text" name="password" placeholder="Senha" class="input" required>
         	</div>
 
-					<div class="btn"><a href="welcome.php"> Acessar</a></div>
+					<div class="btn"> Acessar</div>
 
           <a href="#" class="fa fa-instagram"></a>
           <a href="#" class="fa fa-youtube"></a>
