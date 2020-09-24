@@ -1,81 +1,53 @@
 <?php
 
 if (isset($_POST['login-submit'])) {
+  require 'db_connection.php';
 
-   require 'db_connection.php';
+  $mailuid = $_POST['mailuid'];
+  $password = $_POST['pwd'];
 
-   $username = $_POST['uid'];
-   $email = $_POST['mail'];
-   $password = $_POST['pwd'];
-   $passwordRepeat = $_POST['pwd-repeat'];
-
-
-if(empty($username) || empty($email) || empty($password) || empty($passwordRepeat)){
-  header("Location: login.php?error=emptyfields&uid=".$username."&mail=".$email);
-  exit();
-}
-
-else if(!filter_var($email, FILTER_VALIDATE_EMAIL) && !preg_match("/^[a-zA-Z0-9]*$/", $username)){
-  header("Location: login.php?error=invalidemailuid");
-  exit();
-}
-
-else if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
-  header("Location: login.php?error=invalidemail&uid=".$username);
-  exit();
-}
-else if (!preg_match("/^[a-zA-Z0-9]*$/", $username)){
-  header("Location: login.php?error=invalidemail&mail=".$email);
-  exit();
-}
-
-else if($password !== $passwordRepeat) {
-  header("Location: login.php?error=passwordcheck&uid=".$username."&mail=".$email);
-  exit();
+  if (empty($mailuid) || empty($password)) {
+    header("Location: login.php?error=emptyfields");
+    exit();
   }
   else {
-
-    $sql = "SELECT uidUSers FROM users WHERE uidUsers=?";
+    $sql = "SELECT * FROM users WHERE uidUsers=? OR emailUsers=?;";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
       header("Location: login.php?error=sqlerror");
       exit();
     }
     else {
-      mysqli_stmt_bind_param($stmt, "s", $username);
+      mysqli_stmt_bind_param($stmt, "ss", $mailuid, $mailuid);
       mysqli_stmt_execute($stmt);
-      mysqli_stmt_store_result($stmt);
-      $resultCheck = mysqli_stmt_num_rows($stmt);
+      $result = mysqli_stmt_get_result($stmt);
 
-      if($resultCheck > 0){
-        header("Location: login.php?error=usertaken&mail=".$email);
-        exit();
-      }
-
-      else {
-
-        $sql = "INSERT INTO users (uidUsers, emailUsers, pwdUsers) VALUES (?, ?, ?)";
-        $stmt = mysqli_stmt_init($conn);
-        if (!mysqli_stmt_prepare($stmt, $sql)) {
-          header("Location: login.php?error=sqlerror");
+      if ($row = mysqli_fetch_assoc($result)) {
+        $pwdCheck = password_verify($password, $row['pwdUsers']);
+        if ($pwdCheck == false) {
+          header("Location: login.php?error=wrongpwd");
           exit();
-        } else {
-
-          $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
-          mysqli_stmt_bind_param($stmt, "sss", $username, $email,$hashedPwd);
-          mysqli_stmt_execute($stmt);
-          header("Location: mainpage.php");
+        }
+        else if($pwdCheck == true) {
+          session_start();
+          $_SESSION['userId'] = $row['idUsers'];
+          $_SESSION['userUid'] = $row['uidUsers'];
+          header("Location: mainpage.php?login=success");
+          exit();
+        }
+        else {
+          header("Location: login.php?error=wrongpwd");
           exit();
         }
       }
-    }
-
+      else {
+        header("Location: login.php?error=nouser");
+        exit();
+      }
   }
-  mysqli_stmt_close($stmt);
-  mysqli_close($conn);
 }
-
+}
 else {
-  header("Location: mainpage.php");
+  header("Location: mainpage.php?login=success");
   exit();
 }

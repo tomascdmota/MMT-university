@@ -23,12 +23,12 @@ if (isset($_POST['signup-submit'])) {
     exit();
   }
   else if (!preg_match("/^[a-zA-Z0-9]*$/", $username)){
-    header("Location: login.php?error=invalidemail&mail=".$email);
+    header("Location: login.php?error=invalidUser=".$username);
     exit();
   }
 
   else if($password !== $passwordRepeat) {
-    header("Location: login.php?error=passwordcheck&uid=".$username."&mail=".$email);
+    header("Location: login.php?error=passwordsdonotmatch&pwd=".$password."&pwd-repeat=".$passwordRepeat);
     exit();
     }
     else {
@@ -62,7 +62,7 @@ if (isset($_POST['signup-submit'])) {
             $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
             mysqli_stmt_bind_param($stmt, "sss", $username, $email,$hashedPwd);
             mysqli_stmt_execute($stmt);
-            header("Location: welcome.php?signup=success");
+            header("Location: mainpage.php?signup=success");
             exit();
           }
         }
@@ -74,6 +74,6 @@ if (isset($_POST['signup-submit'])) {
   }
 
   else {
-    header("Location: welcome.php");
+    header("Location: mainpage.php");
     exit();
   }

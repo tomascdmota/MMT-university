@@ -1,21 +1,3 @@
-
-<?php
-session_start();
-$_SESSION['message'] = '';
-
-
-include("db_connection.php");
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-	// code...
-	if($_POST['password'] == $_POST['password']){
-		$username = $conn-> real_escape_string($_POST['username']);
-		$email = $conn->real_escape_string($_POST['Email']);
-		$Password = md5($_POST['password']); //md5 hash password security
-
-	}
-}
-?>
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -102,18 +84,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 
-			<form action="signup.inc.php" method="post">
-				<div class="alert alert-error"> <?= $_SESSION['message']?></div>
+			<form class="form-signup" action="signup.inc.php" method="post">
+
+				<?php
+				if (isset($_GET['error'])) {
+					if ($_GET['error'] == "emptyfields") {
+						echo '<p class="signuperror"> Preencha todos os campos!</p>';
+					} else if($_GET['error'] == "wrongpwd"){
+						echo '<p class="signuperror"> A sua senha está errada!</p>';
+					}
+					else if($_GET['error'] == "nouser"){
+						echo '<p class="signuperror">Não existe ninguém cadastrado com esse Email/Usuário!</p>';
+					}
+
+				}
+			?>
       		<div class="login">
         	<div class="input_field">
           	<input type="text" name="mailuid" placeholder="Email/Username" class="input" required>
         </div>
-
         <div class="input_field">
-          <input type="text" name="password" placeholder="Senha" class="input" required>
+          <input type="text" name="pwd" placeholder="Senha" class="input" required>
         	</div>
 
-					<div class="btn"> Acessar</div>
+					<button type="submit" class="btn" name="login-submit">Acessar</button>
 
           <a href="#" class="fa fa-instagram"></a>
           <a href="#" class="fa fa-youtube"></a>
@@ -123,13 +117,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 		<form class="form-signup" action="login.inc.php" method="post">
+			<?php
+			if (isset($_GET['error'])) {
+				if ($_GET['error'] == "emptyfields") {
+					echo '<p class="signuperror"> Preencha todos os campos!</p>';
+				} else if($_GET['error'] == "invalidemail"){
+					echo '<p class="signuperror">Por favor introduza um email válido!</p>';
+				}
+				else if($_GET['error'] == "invalidUser"){
+					echo '<p class="signuperror">Por favor introduza um Usuário válido!</p>';
+				}
+				else if($_GET['error'] == "passwordsdonotmatch"){
+					echo '<p class="signuperror">As duas senhas não combinam!</p>';
+				}
+			}
+			else if ($_GET['signup'] == "success"){
+				echo '<p class="signupsucess">Utilizador registado com sucesso</p>';
+			}?>
       	<div class="register">
         	<div class="input_field">
           	<input type="text" name="uid" placeholder="Usuário" class="input" required>
         		<input type="text" name="mail" placeholder="Email" class="input" required>
-        	<input type="password" name="pwd" placeholder="Senha" class="input" required>
-					<input type="password" name="pwd-repeat" placeholder="Repita a sua Senha" class="input" required>
-					<button type="submit" class="btn" name="signup-submit">Registrar</button>
+        		<input type="password" name="pwd" placeholder="Senha" class="input" required>
+						<input type="password" name="pwd-repeat" placeholder="Repita a sua Senha" class="input" required>
+						<button type="submit" class="btn" name="signup-submit">Registrar</button>
 			</div>
 
       <a href="https://www.instagram.com/mmtuniversity_oficial/" class="fa fa-instagram" target="_blank"></a>
