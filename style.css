@@ -13,7 +13,7 @@ body{
   width: 100%;
   background-size: auto;
   font-family: "Montserrat", sans-serif;
-  background-image: url("background.gif");
+  background-image: url("login.png");
   background-size: cover;
   background-repeat: no-repeat;
 
@@ -208,7 +208,7 @@ nav{
   color: rgb(226,226,226);
   text-decoration: none;
   letter-spacing: 3px;
-  font-size: 14px
+  font-size: 14px;
   transition: all 0.3s ease 0s;
 
 }

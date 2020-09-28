@@ -51,18 +51,36 @@ if (isset($_POST['signup-submit'])) {
         }
 
         else {
-
-          $sql = "INSERT INTO users (uidUsers, emailUsers, pwdUsers) VALUES (?, ?, ?)";
+          $vkey = md5(time().$username);
+          $sql = "INSERT INTO users (uidUsers, emailUsers, pwdUsers, vkey) VALUES (?, ?, ?, ?)";
           $stmt = mysqli_stmt_init($conn);
+
           if (!mysqli_stmt_prepare($stmt, $sql)) {
             header("Location: login.php?error=sqlerror");
             exit();
           } else {
 
+
+            $to = $email;
+            $subject = "Bem vindo!";
+            $message = "Bem vindo ao University MMT,
+            Estamos muito contentes por o/a ter connosco, por favor clique no link a baixo para verificar a sua conta.
+            'https://universitymmt.com/verify.php?vkey=$vkey'";
+
+
             $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
-            mysqli_stmt_bind_param($stmt, "sss", $username, $email,$hashedPwd);
+            mysqli_stmt_bind_param($stmt, "ssss", $username, $email,$hashedPwd, $vkey);
             mysqli_stmt_execute($stmt);
-            header("Location: mainpage.php?signup=success");
+            mail($to, $subject, $header, $message);
+            header("Location: after-login.php?signup=success");
+
+            //Send email
+
+
+
+
+
+
             exit();
           }
         }
@@ -71,6 +89,8 @@ if (isset($_POST['signup-submit'])) {
     }
     mysqli_stmt_close($stmt);
     mysqli_close($conn);
+
+
   }
 
   else {

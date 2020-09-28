@@ -104,10 +104,18 @@
           	<input type="text" name="mailuid" placeholder="Email/Username" class="input" required>
         </div>
         <div class="input_field">
-          <input type="text" name="pwd" placeholder="Senha" class="input" required>
+          <input type="password" name="pwd" placeholder="Senha" class="input" required>
         	</div>
-
 					<button type="submit" class="btn" name="login-submit">Acessar</button>
+					<button type="submit" class="btn" name=""><a href="reset-password.php">Esqueci a minha senha</a></button>
+					<?php
+						if(isset($_GET["newpwd"])){
+							if($_GET["newpwd"] == "passwordupdated"){
+								echo '<p class="signupsucess">A sua senha foi reposta!</p>';
+							}
+						}
+					 ?>
+
 
           <a href="#" class="fa fa-instagram"></a>
           <a href="#" class="fa fa-youtube"></a>
