@@ -1,5 +1,11 @@
 <?php
 session_start();
+require 'db_connection.php';
+require 'login.inc.php';
+if( isset($_SESSION['uidUsers'])) {
+  $user_id = $_SESSION['uidUsers'];
+  $user = in_array_r($user_id,$user);
+}
  ?>
 
 
@@ -15,6 +21,11 @@ session_start();
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
     </head>
     <body>
+      <?php
+
+
+
+       ?>
 
 
       <!--wrapper start-->

@@ -3,224 +3,181 @@
   margin: 0;
   padding: 0px;
   box-sizing: border-box;
-}
 
-nav{
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  min-height: 8vh;
-  background-color: #313840;
-  font-family: "Montserrat", sans-serif;
-  overflow: hidden;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
 }
-
-.cta {
-  margin-left: 20px;
-  margin-right: 20px;
-  padding: 9px 25px;
-  background-color: rgba(0, 136, 169, 1);
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: all 0.3s ease 0s;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 500;
-  color: #edf0f1;
+html {
+  scroll-behavior: smooth;
+}
+body {
+  min-height: 100vh;
+}
+a {
   text-decoration: none;
 }
 
-.cta:hover {
-  background-color: rgba(0, 136, 169, 0.8);
-}
-
-.logo {
-  height: 90px;
-  width: 100%;
-  margin-left: 20px;
-}
-
-.nav-links {
-  display: flex;
-  justify-content: space-around;
-  width: 350%;
-  font-size: 16px;
-}
-
-.nav-links li{
-    list-style: none;
-    color: #edf0f1;
-    text-transform: uppercase;
-    margin-right: 5px;
-}
-
-.nav-links a{
-  color: rgb(226,226,226);
-  text-decoration: none;
-  letter-spacing: 3px;
-  font-size: 14px
-  transition: all 0.3s ease 0s;
-
-}
-
-.nav-links li a:hover{
-  color: #0088a9;
-}
-
-
-.burger div{
-  width: 25px;
-  height: 3px;
-  background-color: rgb(226,226,226);
-  margin: 5px;
-  transition: all 0.3s ease;
-}
-
-.burger {
-  display: none;
-  cursor: pointer;
-  margin-right: 20px;
-}
-
-@media screen and (max-width: 1600px){
-  .nav-links
-   {
-    display: flex;
-    justify-content: space-around;
-    width: 350%;
-    font-size: 16px;
-  }
-
-}
-
-@media screen and (max-width:1224px){
-  .nav-links
-   {
-    display: flex;
-    justify-content: space-around;
-    width: 350%;
-    font-size: 14px;
-  }
-
-}
-
-@media screen and (max-width:1000px){
-  .nav-links
-   {
-    display: flex;
-    justify-content: space-around;
-    width: 250%;
-    font-size: 13px;
-
-  }
-
-}
-
-@media screen and (max-width:900px){
-  .nav-links
-   {
-    display: flex;
-    justify-content: space-around;
-    width: 200%;
-    font-size: 10px;
-
-  }
-
-}
-
-
-
-@media screen and (max-width:800px){
-  .nav-links
-   {
-    display: flex;
-    justify-content: space-around;
-    width: 200%;
-    font-size: 8px;
-  }
-
-}
-
-@media screen and (max-width:768px){
-
-  body{
-    overflow-x: hidden;
-  }
-  .nav-links{
-    position: absolute;
-    right: 0px;
-    height: 92vh;
-    top: 9vh;
-    background-color: #313840;
-    flex-direction: column;
-    align-items: center;
-    width: 50%;
-    transform: translateX(100%);
-    transition: transform 0.5s ease-in;
-  }.cta {
-    display: none;
-  }
-  .nav-links li{
-    opacity: 1;
-  }
-
-  .burger {
-    display: block;
-  }
-
-  .logo {
-    height: 50px;
-    width: 80%;
-    margin-left: 10px;
-  }
-}
-
-.nav-active {
-  transform: translateX(0%);
-}
-
-@keyframes navLinkFade{
-  from{
-    opacity: 0;
-    transform: translateX(50px);
-  }to {
-      opacity: 1;
-      transform: translateX(0px);
-  }
-}
-
-.toggle .line1{
-  transform: rotate(-45deg) translate(-5px, 6px);
-}
-.toggle .line2{
-  opacity: 0;
-}
-.toggle .line3{
-  transform: rotate(45deg) translate(-5px,-6px);
-}
 
 
 .container {
+  background-image: url("sac1.png");
+  height: 110vh;
+  background-size: cover;
+  position: ;
+  overflow: auto;
+
+}
+
+.contact-form {
   width: 100%;
-  margin-top: 8vh;
-  background: #f9f9f9;
-  font-size: 24px;
+  height: 85vh;
+  max-width: 600px;
+  position: inherit;
+  margin-top: 10vh;
+  margin-left: 10vh;
+  padding: 50px 30px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  text-align: center;
+  overflow: auto;
+
 }
 
-.parallax {
-  background: url("MMT.png") ;
-  background-size: cover;
-  height: 900px;
-  width: 100%
+
+.contact-form h1 {
+  margin-top: 0;
+  font-weight: 200;
+  color: white;
+  font-family: fantasy;
+  font-size: 70px;
+  letter-spacing: 15px;
+  text-transform: uppercase;
+}
+.contact-form p {
+  margin-top: 20px;
+  font-weight: 50;
+  color: white;
+  font-family: fantasy;
+  font-size: 20px;
+  text-transform: uppercase;
+  margin-bottom: 50px;
 }
 
-.parallax2{
-  background: url("bg-servicos.png") no-repeat center;
-  background-size: cover;
-  height: 1000px;
+.txtb{
+  border-radius: 10px solid white;
+  margin: 8px 0;
+  margin-bottom: 50px;
+  padding: 12px 18px;
+  border-radius: 8px;
+  background: #fff;
+}
+.txtbm{
+  border-radius: 10px solid white;
+  margin: 20px 0;
+  margin-bottom: 50px;
+  padding: 20px 18px;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.txtb label {
+  display: block;
+  text-align: left;
+  color: #dbdbdb;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.txtb input{
+  width: 100%;
+  border: none;
+  background: none;
+  outline: none;
+  font-size: 20px;
+  margin-top: 12px;
+  color: #332e2e;
+  margin-left: 5px;
+  padding-bottom: 13px;
+}
+
+.txtbm label {
+  display: block;
+  text-align: left;
+  color: #333;
+  text-transform: uppercase;
+  font-size: 14px;
+  top: 0;
+}
+
+.txtbm input{
+  width: 100%;
+  border: none;
+  background: none;
+  outline: none;
+  font-size: 20px;
+  margin-top: 4px;
+  color: #332e2e;
+  margin-left: 8px;
+  padding-bottom: 60px;
+
+}
+
+
+.btn{
+  display: block;
+  background: #FFBF0D;
+  padding: 14px 0;
+  color: white;
+  font-size: 25px;
+  font-family: sans-serif;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 8px;
+  width: 50%;
+  border-radius: 10px;
+}
+
+
+
+.fwh-slide {
+  height: 100vh;
+  box-sizing: border-box;
+}
+.fwh-slide img {
+  height: 100%;
+  width: 100%;
+}
+
+.fwh-slide2 {
+  height: 95vh;
+  box-sizing: border-box;
+}
+.fwh-slide2 img {
+  height: 100%;
+  width: 100%;
+}
+
+.fwh-slide3 {
+  height: 95vh;
+  box-sizing: border-box;
+}
+.fwh-slide3 img {
+  height: 100%;
+  width: 100%;
+}
+
+.fwh-slide4 {
+  height: 95vh;
+  box-sizing: border-box;
+}
+.fwh-slide4 img {
+  height: 100%;
+  width: 100%;
+}
+.fwh-slide5 {
+  height: 95vh;
+  box-sizing: border-box;
+}
+.fwh-slide5 img {
+  height: 100%;
   width: 100%;
 }

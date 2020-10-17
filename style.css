@@ -1,5 +1,3 @@
-
-
 *{
   margin: 0;
   padding: 0;
@@ -9,16 +7,27 @@
 }
 
 body{
-  margin:0;
   width: 100%;
-  background-size: auto;
+  height: 100vh;
   font-family: "Montserrat", sans-serif;
-  background-image: url("login.png");
+  background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 
 }
 
+.fwh-slide {
+  height: 100vh;
+  box-sizing: border-box;
+}
+.fwh-slide img {
+  height: 100%;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
 .wrapper{
   display: flex;
   max-width: 560px;
@@ -105,6 +114,7 @@ body{
   text-transform: uppercase;
   letter-spacing: 3px;
   font-weight: bold;
+  display: inline-block;
 }
 
 .wrapper .right .btn a{
@@ -294,7 +304,7 @@ nav{
 @media screen and (max-width:768px){
 
   body{
-    overflow-x: hidden;
+    overflow-x: auto;
   }
   .nav-links{
     position: absolute;

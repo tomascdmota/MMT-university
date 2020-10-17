@@ -8,6 +8,8 @@ if (isset($_POST['signup-submit'])) {
    $password = $_POST['pwd'];
    $passwordRepeat = $_POST['pwd-repeat'];
 
+
+
   if(empty($username) || empty($email) || empty($password) || empty($passwordRepeat)){
     header("Location: login.php?error=emptyfields&uid=".$username."&mail=".$email);
     exit();
@@ -62,6 +64,7 @@ if (isset($_POST['signup-submit'])) {
 
 
             $to = $email;
+            $from = "suporte@universitymmt.com";
             $subject = "Bem vindo!";
             $message = "Bem vindo ao University MMT,
             Estamos muito contentes por o/a ter connosco, por favor clique no link a baixo para verificar a sua conta.
@@ -75,6 +78,7 @@ if (isset($_POST['signup-submit'])) {
             header("Location: after-login.php?signup=success");
 
             //Send email
+            $query = mysqli_query($conn, $sql);
 
 
 

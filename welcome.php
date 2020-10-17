@@ -5,8 +5,10 @@
     exit();
   }
   else {
-    
+
   }
+
+
 ?>
 
 
@@ -17,53 +19,46 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="welcome-style.css">
         <link rel="icon" href="logo-black.png" type="image/xpng">
+        <script src="jquery-3.5.1.min.js"></script>
+        <script type="text/javascript" src="main.js"></script>
+        <script type="text/javascript" src="nav.js"></script>
+      </head>
+
+        </script>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <body>
 
-          <nav>
-            <div class="logo">
-              <img src="mmt-white.png" alt="logo">
-            </div>
+<?php include('header/header.php') ?>
 
-            <ul class="nav-links">
-              <li><a href="welcome.php">Home<a></li>
-              <li><a href="#servicos">Servicos<a></li>
-              <li><a href="#">Depoimentos<a></li>
-              <li><a href="#">Comecando<a></li>
-              <li><a href="#">Contacte-nos<a></li>
-              </ul>
+          <section class="fwh-slide" id="about">
+            <img src="quem-somos.png">
+          </section>
 
-              <a class="cta" href="login.php">Acessar</a>
+          <section class="fwh-slide2" id="operations">
+            <img src="onde-atuamos.png">
+          </section>
 
-          <div class="burger">
-            <div class="line1"></div>
-            <div class="line2"></div>
-            <div class="line3"></div>
+        <section class="fwh-slide3" id="servicos">
+          <img src="servicos.png">
+        </section>
 
-          </div>
-          </nav>
-          <script src="mobile.js"></script>
-          <script type="text/javascript">
-            $(function(){
-              $(".nav-links a").on('click', function(){
-                $("html, body").animate({
-                  scrollTop: $($.attr(this, 'href')).offset().top
-                }, 300);
-              });
-            });
+        <section class="fwh-slide4" id="Depoimentos">
+          <img src="depoimentos.png">
+        </section>
 
-          </script>
+        <section class="fwh-slide5" id="Comecando">
+          <img src="comecando.png">
+        </section>
 
 
-        <div class="container">
-        <div class="parallax" id="about">
 
-            </div>
-
-          <div class="parallax2" id="servicos">
-          </div>
-        </div>
-
+        <?php include('sac/sac.php') ?>
 
     </body>
-</html>
+
+        <?php include('footer/footer.php');?>
+
+      </body>
+    </html>
+  </html>

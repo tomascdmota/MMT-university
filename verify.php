@@ -22,6 +22,9 @@
         <h1> Bem vindo ao University</h1>
         <h2>A sua conta foi agora verificada, já pode acessar e entrar na plataforma!<br>
         Até já.</h2>
+        <a class="btn btn-lg btn-success" href="login.php"
+               >Click to Login
+            </a>
   </body>
 
   </html>

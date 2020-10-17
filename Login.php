@@ -38,6 +38,9 @@
 
 
 <body>
+	<section class="fwh-slide" >
+		<img src="login-background.png">
+	</section>
 	<nav>
 		<div class="logo">
 			<img src="mmt-white.png" alt="logo">
@@ -45,13 +48,13 @@
 
 		<ul class="nav-links">
 			<li><a href="welcome.php">Home<a></li>
-			<li><a href="#servicos">Servicos<a></li>
-			<li><a href="#">Depoimentos<a></li>
-			<li><a href="#">Comecando<a></li>
-			<li><a href="#">Contacte-nos<a></li>
+			<li><a href="/servicos">Servicos<a></li>
+			<li><a href="/Depoimentos">Depoimentos<a></li>
+			<li><a href="/Comecando">Comecando<a></li>
+			<li><a href="/sac">Contacte-nos<a></li>
 			</ul>
 
-			<a class="cta" href="Login.php">Acessar</a>
+			<a class="cta" href="login.php">Acessar</a>
 
 	<div class="burger">
 		<div class="line1"></div>
@@ -69,7 +72,7 @@
   <div class="wrapper">
 
       <div class="left">
-        <h3>MMT University</h3>
+        <h3>Bem vindo!</h3>
         <img src="logo-solo.png" alt="logo2">
       </div>
 
@@ -107,7 +110,7 @@
           <input type="password" name="pwd" placeholder="Senha" class="input" required>
         	</div>
 					<button type="submit" class="btn" name="login-submit">Acessar</button>
-					<button type="submit" class="btn" name=""><a href="reset-password.php">Esqueci a minha senha</a></button>
+					<button type="submit" class="btn" name=""><a href="reset-password.php" style="text-decoration:none;">Esqueci a minha senha</a></button>
 					<?php
 						if(isset($_GET["newpwd"])){
 							if($_GET["newpwd"] == "passwordupdated"){
@@ -117,8 +120,7 @@
 					 ?>
 
 
-          <a href="#" class="fa fa-instagram"></a>
-          <a href="#" class="fa fa-youtube"></a>
+
       	</div>
 
 			</form>
@@ -151,8 +153,6 @@
 						<button type="submit" class="btn" name="signup-submit">Registrar</button>
 			</div>
 
-      <a href="https://www.instagram.com/mmtuniversity_oficial/" class="fa fa-instagram" target="_blank"></a>
-      <a href="https://www.youtube.com/channel/UCuf2KhhA8Ub3hcSgfaziiDw" class="fa fa-youtube" target="_blank"></a>
 
       			</div>
 
@@ -162,7 +162,8 @@
 
 		</div>
 
-	</
+	</div>
+
 
 	</body>
 
